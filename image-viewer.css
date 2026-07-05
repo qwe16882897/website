@@ -1,0 +1,122 @@
+/* 作品大图查看器 — 与创作者后台 works-page.css 查看器对齐 */
+.work-viewer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 10vh;
+  transition: background 0.2s ease;
+}
+.work-viewer-overlay--active {
+  background: rgba(0, 0, 0, 0.85);
+}
+.work-viewer-overlay--closing {
+  background: rgba(0, 0, 0, 0);
+}
+
+.work-viewer-image-wrap {
+  position: relative;
+  max-width: 90vw;
+  max-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.work-viewer-image-wrap--active {
+  opacity: 1;
+  transform: scale(1);
+}
+.work-viewer-image-wrap--closing {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.work-viewer-close {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  z-index: 10001;
+  padding: 0;
+}
+.work-viewer-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.work-viewer-close svg {
+  display: block;
+}
+
+.work-viewer-title {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 20px;
+  max-width: 80vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.work-viewer-title--visible {
+  opacity: 1;
+}
+
+.work-viewer-nav {
+  position: fixed;
+  top: calc(10vh + 37.5vh);
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 10001;
+  padding: 0;
+}
+.work-viewer-nav:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.08);
+}
+.work-viewer-nav--prev {
+  left: 24px;
+}
+.work-viewer-nav--next {
+  right: 24px;
+}
+.work-viewer-nav svg {
+  display: block;
+}
+
+.work-viewer-image {
+  display: block;
+  max-width: 85vw;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
+}
